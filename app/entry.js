@@ -1,7 +1,15 @@
 'use strict';
-import dc from 'damage-calc';
-import crypto from 'crypto';
-const root = document.getElementById('root');
-root.innerHTML = '<p>攻撃力 100, 防御 50, 防御貫通 30 のダメージは、'
-  + dc.effectiveDamage(100, 50, 30) + '</p><p>'
-  + crypto.randomBytes(8).toString('hex') + '</p>';
+
+// jqueryをモジュールを読み込む
+import $ from 'jquery';
+
+// HTMLの要素を取得するAPI
+const block = $('#block');
+const scalingButton = $('#scaling-button');
+
+// 要素がクリックされた時に、click関数に渡された関数が呼び出される
+scalingButton.click(() => {
+  // animate関数を呼び出す
+  block.animate({ width: '200pt', height: '200pt' }, 2000);
+  block.animate({ width: '100pt', height: '100pt' }, 2000);
+});
